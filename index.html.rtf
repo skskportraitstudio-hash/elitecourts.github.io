@@ -1,0 +1,152 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!doctype html>\
+<html lang="en">\
+<head>\
+  <meta charset="utf-8" />\
+  <meta name="viewport" content="width=device-width,initial-scale=1" />\
+  <title>Your Simple Site</title>\
+  <meta name="description" content="A small, free single-page website." />\
+  <style>\
+    /* Simple, modern styling */\
+    :root\{\
+      --bg:#0f1724;\
+      --card:#0b1220;\
+      --accent:#4f46e5;\
+      --muted:#9aa4b2;\
+      --glass: rgba(255,255,255,0.03);\
+      --radius:14px;\
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;\
+    \}\
+    *\{box-sizing:border-box\}\
+    body\{\
+      margin:0;\
+      background:linear-gradient(180deg,#061021 0%, #081827 100%);\
+      color:#e6eef6;\
+      -webkit-font-smoothing:antialiased;\
+      -moz-osx-font-smoothing:grayscale;\
+      line-height:1.5;\
+      padding:40px 18px;\
+    \}\
+    .wrap\{max-width:980px;margin:0 auto\}\
+    header\{\
+      display:flex;align-items:center;gap:14px;margin-bottom:26px;\
+    \}\
+    .logo\{\
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);\
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 6px 20px rgba(15,20,36,.6);\
+    \}\
+    h1\{margin:0;font-size:28px\}\
+    p.lead\{color:var(--muted);margin-top:6px;margin-bottom:22px\}\
+    .grid\{\
+      display:grid;grid-template-columns:1fr 320px;gap:20px;\
+    \}\
+    @media (max-width:880px)\{ .grid\{grid-template-columns:1fr\} .sidebar\{order:2\} \}\
+    .card\{\
+      background:linear-gradient(180deg,var(--card), rgba(11,18,32,0.6));\
+      border-radius:var(--radius); padding:20px; box-shadow: 0 6px 22px rgba(2,6,23,0.6);\
+      border:1px solid rgba(255,255,255,0.03);\
+    \}\
+    article h2\{margin-top:0\}\
+    .features\{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px\}\
+    .feature\{background:var(--glass);padding:10px 12px;border-radius:10px;color:var(--muted);font-size:14px\}\
+    .btn\{\
+      display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);\
+      color:white;text-decoration:none;font-weight:600;margin-top:12px;box-shadow:0 6px 20px rgba(79,70,229,.16)\
+    \}\
+    .sidebar .meta\{display:flex;flex-direction:column;gap:12px\}\
+    .meta .item\{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px;border-radius:12px\}\
+    footer\{color:var(--muted);text-align:center;padding:24px 8px;font-size:14px\}\
+    .actions\{display:flex;gap:10px;flex-wrap:wrap\}\
+    .social\{display:flex;gap:8px;margin-top:10px\}\
+    a.social-link\{display:inline-block;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--muted);font-weight:600\}\
+  </style>\
+</head>\
+<body>\
+  <div class="wrap">\
+    <header>\
+      <div class="logo">YS</div>\
+      <div>\
+        <h1>Your Simple Site</h1>\
+        <p class="lead">A free single-page website. Replace this text with your name, tagline, or business pitch.</p>\
+      </div>\
+    </header>\
+\
+    <div class="grid">\
+      <main class="card">\
+        <article>\
+          <h2>Welcome \'97 quick intro</h2>\
+          <p>Write one clear sentence about what you do. This section is ideal for a short elevator pitch, a product intro, or a personal bio.</p>\
+\
+          <div class="features" aria-hidden="true">\
+            <div class="feature">Fast & lightweight</div>\
+            <div class="feature">Mobile friendly</div>\
+            <div class="feature">Easy to edit</div>\
+          </div>\
+\
+          <h3 style="margin-top:18px">What I offer</h3>\
+          <ul>\
+            <li>Service or feature #1 \'97 short explanation</li>\
+            <li>Service or feature #2 \'97 short explanation</li>\
+            <li>Service or feature #3 \'97 short explanation</li>\
+          </ul>\
+\
+          <a class="btn" href="#contact">Get in touch</a>\
+        </article>\
+\
+        <section style="margin-top:18px">\
+          <h3>Gallery / media</h3>\
+          <p style="color:var(--muted)">Replace these placeholders with real images \'97 upload to an image host and add &lt;img&gt; tags here.</p>\
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">\
+            <div style="width:120px;height:80px;background:#081424;border-radius:8px"></div>\
+            <div style="width:120px;height:80px;background:#081424;border-radius:8px"></div>\
+            <div style="width:120px;height:80px;background:#081424;border-radius:8px"></div>\
+          </div>\
+        </section>\
+      </main>\
+\
+      <aside class="sidebar">\
+        <div class="card meta">\
+          <div class="item">\
+            <strong>Contact</strong>\
+            <div style="color:var(--muted);margin-top:6px">email@example.com<br/>+00 123 456 789</div>\
+          </div>\
+\
+          <div class="item">\
+            <strong>Quick links</strong>\
+            <div style="margin-top:8px" class="actions">\
+              <a class="social-link" href="#" title="Portfolio">Portfolio</a>\
+              <a class="social-link" href="#" title="About">About</a>\
+            </div>\
+          </div>\
+\
+          <div class="item">\
+            <strong id="contact">Location</strong>\
+            <div style="color:var(--muted);margin-top:6px">City, Country \'97 or "Remote"</div>\
+          </div>\
+        </div>\
+\
+        <div style="height:18px"></div>\
+\
+        <div class="card">\
+          <strong>Subscribe</strong>\
+          <p style="color:var(--muted);margin:6px 0 12px">Get updates \'97 paste your newsletter provider link below if you have one.</p>\
+          <form onsubmit="alert('Thanks \'97 replace this JS with your form post.');return false;">\
+            <input aria-label="email" placeholder="you@example.com" style="width:100%;padding:10px;border-radius:8px;border:0;background:#07101b;color:inherit" />\
+            <button class="btn" style="width:100%;margin-top:10px">Subscribe</button>\
+          </form>\
+        </div>\
+      </aside>\
+    </div>\
+\
+    <footer>\
+      Made with \uc0\u9829  \'97 edit this footer. \'95 <small style="color:var(--muted)">2025</small>\
+    </footer>\
+  </div>\
+</body>\
+</html>}
