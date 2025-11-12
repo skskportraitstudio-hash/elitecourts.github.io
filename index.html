@@ -50,14 +50,6 @@
               }
           }
       }
-      /* Custom styles for aesthetic enhancements */
-      /* .hero-bg {
-          background-color: #0a3d62;
-          /* Using a placeholder for the background image for demonstration */
-          background-image: linear-gradient(rgba(10, 61, 98, 0.95), rgba(10, 61, 98, 0.8)), url('https://placehold.co/1200x800/0a3d62/ffffff?text=Padel+Court+Background');
-          background-size: cover;
-          background-position: center;
-      } */
       /* Adds a subtle lime green ring effect to cards */
       .card-shadow {
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(74, 222, 128, 0.5); 
@@ -85,17 +77,15 @@
                   class="h-10 w-auto rounded-full"
                   onerror="this.onerror=null; this.src='https://placehold.co/40x40/4ade80/0a3d62?text=EC';"
               >
-              <span class="text-xl font-extrabold text-accent-lime tracking-wider hidden sm:block">ELITE COURTS</span>
+              <span class="text-xl font-extrabold text-padel-accent tracking-wider hidden sm:block">ELITE COURTS</span>
           </a>
 
-            <div class="hidden md:flex space-x-8">
-                <a href="#sports" class="text-padel-dark hover:text-padel-green transition duration-300">Sports</a>
-                <a href="#pricing" class="text-padel-dark hover:text-padel-green transition duration-300">Pricing</a>
-                <a href="#contact" class="text-padel-dark hover:text-padel-green transition duration-300">Contact</a>
-                </button>
+            <div class="hidden md:flex items-center space-x-8"> <!-- Added items-center for vertical alignment -->
+                <a href="#sports" class="text-padel-dark hover:text-padel-green transition duration-300 py-1.5">Sports</a> <!-- Added py-1.5 -->
+                <a href="#pricing" class="text-padel-dark hover:text-padel-green transition duration-300 py-1.5">Pricing</a> <!-- Added py-1.5 -->
+                <a href="#contact" class="text-padel-dark hover:text-padel-green transition duration-300 py-1.5">Contact</a> <!-- Added py-1.5 -->
                 <!-- Book Now Button (Nav) -->
                 <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Now</a>
-            </nav>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-padel-dark hover:bg-gray-100 focus:outline-none">
@@ -103,39 +93,43 @@
             </button>
         </nav>
 
+        <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
             <a href="#sports" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Sports</a>
             <a href="#pricing" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Pricing</a>
             <a href="#contact" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Contact</a>
-            <!-- <button class="w-full mt-2 px-4 py-3 bg-padel-accent text-white font-semibold hover:bg-blue-700 transition duration-300 rounded-none" onclick="toggleMobileMenu()">
-                Book Now
-            </button> -->
-            <!-- Book Now Button (Nav) -->
-            <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Now</a>
-        </nav>
+            <!-- Book Now Button (Mobile) -->
+            <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="block w-auto mx-4 text-center mt-2 px-4 py-3 bg-padel-green text-padel-dark font-semibold hover:bg-green-500 transition duration-300 rounded-lg shadow-md">Book Now</a>
         </div>
     </header>
 
-    <section  id="hero" class="relative bg-contain bg-no-repeat bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
-      <!-- Background Image -->
-      <div class="absolute z-0 bg-con">
-            <img src="tennis-paddles-balls-arrangement.jpg" 
-            alt="Elite Courts Logo" 
-            class="h-full w-full"
-            onerror="this.onerror=null; this.src='https://placehold.co/40x40/4ade80/0a3d62?text=EC';"
-        >  
-        </div>
-      </div>
-        <div class="relative flex items-center justify-center h-full text-center px-4">
-          <!-- <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover"> -->
+    <!-- 
+      *** HERO SECTION FIX ***
+      - Parent <section> is set to bg-padel-dark. This is the color that will "letterbox" the image on mobile.
+      - <img> tag is set to object-contain (to show full image) and blur-sm (to blur it).
+      - Overlay <div> provides the 70% opacity for text readability.
+      - Text <div> is set to z-20 to be on top of everything.
+      - Removed stray </div>
+    -->
+    <section id="hero" class="relative bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
       
-            
-            <div class="max-w-3xl relative z-10">
+        <!-- Background Image (Blurred) -->
+        <img src="tennis-paddles-balls-arrangement.jpg" 
+            alt="Elite Courts Pic" 
+            class="absolute inset-0 z-0 w-full h-full object-contain blur-sm"
+            onerror="this.onerror=null; this.src='https://placehold.co/1200x800/1f2937/4ade80?text=Image+Error';"
+        >  
+        
+        <!-- Dark Overlay for Readability -->
+        <div class="absolute inset-0 z-10 bg-padel-dark/70"></div>
+      
+        <!-- Text Content -->
+        <div class="relative z-20 flex items-center justify-center h-full text-center px-4">
+            <div class="max-w-3xl">
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">
                     Home of Padel, Pickleball, and Cricket
-              
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                <p class="text-xl md:text-2xl text-padel-green mb-8">
                     The city's premier facility for racket sports and cricket training. Book your elite experience today.
                 </p>
                 <a href="#pricing" class="inline-block px-10 py-4 bg-padel-green text-padel-dark font-bold text-lg rounded-xl shadow-2xl transition duration-300 transform hover:scale-105 hover:bg-green-400">
@@ -145,11 +139,13 @@
         </div>
     </section>
 
+    <!-- Sports Offered Section -->
     <section id="sports" class="section-padding bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center text-padel-dark mb-16">The Sports Offered at Elite Courts</h2>
 
             <div class="grid md:grid-cols-3 gap-10">
+                <!-- Padel -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transition duration-300 card-hover">
                     <div class="text-padel-accent mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
@@ -158,6 +154,7 @@
                     <p class="text-gray-600">Play on our state-of-the-art **panoramic glass courts** with WPT-certified blue turf. Enjoy perfect visibility and consistent bounce for competitive play.</p>
                 </div>
 
+                <!-- Pickleball -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transition duration-300 card-hover">
                     <div class="text-padel-accent mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.721a2 2 0 01-1.894-2.894l3.5-7zM7 9H2.236a2 2 0 00-1.789 2.894l3.5 7A2 2 0 004.737 21h4.721a2 2 0 001.894-2.894l-3.5-7z"></path></svg>
@@ -166,6 +163,7 @@
                     <p class="text-gray-600">Dedicated, standard-sized **Pickleball courts** with high-quality netting and non-slip surfaces. Perfect for singles and doubles matches.</p>
                 </div>
 
+                <!-- Cricket -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transition duration-300 card-hover">
                     <div class="text-padel-accent mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13.5v2m6 1.5l.5-1.5m-.5 1.5l-.5-1.5m-.5 1.5l.5-1.5m-.5 1.5l-.5-1.5"></path></svg>
@@ -175,20 +173,23 @@
                 </div>
             </div>
 
+            <!-- Amenities -->
             <div class="mt-16 text-center">
                 <h3 class="text-3xl font-bold text-padel-dark mb-4">Shared Elite Amenities</h3>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                     All users benefit from modern changing rooms, high-speed Wi-Fi, clean bathrooms, ample free parking, and a coffeeshop stocked with various drinks and snacks.
+                </p>
             </div>
-
         </div>
     </section>
 
+    <!-- Padel Pricing Section -->
     <section id="pricing" class="section-padding bg-gray-100">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="text-4xl font-bold text-center text-padel-dark mb-16">Padel Court Pricing</h2>
 
           <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <!-- Padel Off-Peak -->
               <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
                   <h3 class="text-2xl font-bold text-padel-dark mb-4">Off-Peak Rental (1Hr)</h3>
                   <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 4,000</p>
@@ -197,16 +198,11 @@
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (10am - 6pm)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Water bottles included</li>
                   </ul>
-                  <!-- <button class="w-full py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
-                      Book Off-Peak
-                  </button> -->
-                  <!-- Book Now Button (Nav) -->
-                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-accent hover:bg-green-500 text-white font-semibold py-4 px-7 rounded-lg transition duration-300 shadow-md">Book Off-Peak Rental</a>
-                </nav>
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Padel%20Off-Peak%20Rental." target="_blank" class="w-full block bg-padel-accent hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 shadow-md">Book Off-Peak Rental</a>
               </div>
 
+              <!-- Padel Peak -->
               <div class="bg-padel-dark text-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transform scale-105 transition duration-500 hover:scale-100">
-                  <!-- <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4">MOST POPULAR</span> -->
                   <h3 class="text-2xl font-bold mb-4">Peak Time Rental (1Hr)</h3>
                   <p class="text-5xl font-extrabold text-padel-green mb-6">Rs 5,000</p>
                   <ul class="text-gray-300 text-left space-y-3 mb-8">
@@ -214,86 +210,67 @@
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (6pm - 3am)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Prime lighting included</li>
                   </ul>
-                  <!-- <button class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
-                      Book Peak Time
-                  </button> -->
-                  <!-- Book Now Button (Nav) -->
-                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-blue-400 py-4 px-7 rounded-lg transition duration-300 shadow-md">Book Peak Rental</a>
-                </nav>
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Padel%20Peak%20Rental." target="_blank" class="w-full block py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300 shadow-md">Book Peak Rental</a>
               </div>
 
-              <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
-                <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4 animate-pulse">MOST POPULAR</span>  
-                <h3 class="text-2xl font-bold text-padel-dark mb-4">Multiple Hours</h3>
-                  <!-- <p class="text-3xl font-extrabold text-padel-accent mb-6">Peak <Time></Time><span class="text-base font-normal text-gray-500">/mo</span></p> -->
-                  <!-- <ul class="text-gray-600 text-left space-y-3 mb-8">
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x Peak Time bookings</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 2x Off-Peak Time bookings</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Exclusive access to events</li>
-                  </ul> -->
-                  <!-- Pricing Card 1: Padel -->
-                  <!-- <div class="p-6 bg-white text-primary-blue rounded-xl shadow-2xl discount-glow border-t-8 border-accent-lime">
-                        
-                    <div class="space-y-4"> -->
-                        
-                        <!-- 1 Hour Block -->
-                        <div class="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100 rounded-lg shadow-inner border border-gray-200">
-                            <span class="text-l font-semibold">1 Hour</span>
-                            <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                                <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-primary-blue">4000</span></span>
-                                <span class="text-l text-gray-600">Peak: <span class="font-bold text-primary-blue">5000</span></span>
-                            </div>
-                        </div>
+              <!-- Padel Multiple Hours -->
+              <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover space-y-4">
+                  <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4 animate-pulse">MOST POPULAR</span>  
+                  <h3 class="text-2xl font-bold text-padel-dark mb-4">Multiple Hours (Padel)</h3>
+                  
+                  <!-- 1 Hour Block -->
+                  <div class="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100 rounded-lg shadow-inner border border-gray-200">
+                      <span class="text-l font-semibold">1 Hour</span>
+                      <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
+                          <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-padel-dark">4000</span></span>
+                          <span class="text-l text-gray-600">Peak: <span class="font-bold text-padel-dark">5000</span></span>
+                      </div>
+                  </div>
 
-                        <!-- 2 Hours Discount Block -->
-                        <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/20 rounded-lg border-2 border-accent-lime shadow-xl discount-glow transition duration-300 hover:bg-accent-lime/30">
-                            <span class="absolute -top-3 left-4 bg-accent-lime text-primary-blue text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
-                            <span class="text-l font-bold text-primary-blue">2 Hours</span>
-                            <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                                <div class="text-lg text-primary-blue">
-                                    <span class="line-through text-gray-500 mr-2">8000</span>
-                                    <span class="font-extrabold">7000</span>
-                                </div>
-                                <div class="text-lg text-primary-blue">
-                                    <span class="line-through text-gray-500 mr-2">10000</span>
-                                    <span class="font-extrabold text-red-700">9000</span>
-                                </div>
-                            </div>
-                        </div>
+                  <!-- 2 Hours Discount Block -->
+                  <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/20 rounded-lg border-2 border-padel-green shadow-xl transition duration-300 hover:bg-padel-green/30">
+                      <span class="absolute -top-3 left-4 bg-padel-green text-padel-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
+                      <span class="text-l font-bold text-padel-dark">2 Hours</span>
+                      <div class="flex flex-col space-y-1 mt-2">
+                          <div class="text-lg text-padel-dark">
+                              Off-Peak: <span class="line-through text-gray-500 mr-2">8000</span>
+                              <span class="font-extrabold">7000</span>
+                          </div>
+                          <div class="text-lg text-padel-dark">
+                              Peak: <span class="line-through text-gray-500 mr-2">10000</span>
+                              <span class="font-extrabold text-red-700">9000</span>
+                          </div>
+                      </div>
+                  </div>
 
-                        <!-- 3 Hours Best Value Block -->
-                        <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/40 rounded-lg border-4 border-primary-blue shadow-2xl discount-glow transition duration-300 hover:bg-accent-lime/50">
-                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse">BEST VALUE</span>
-                            <span class="text-l font-bold text-primary-blue mt-2">3 Hours</span>
-                            <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                                <div class="text-xl text-primary-blue">
-                                    <span class="line-through text-gray-500 mr-2">12000</span>
-                                    <span class="font-extrabold">10000</span>
-                                </div>
-                                <div class="text-xl text-primary-blue">
-                                    <span class="line-through text-gray-500 mr-2">15000</span>
-                                    <span class="font-extrabold text-red-700">13000</span>
-                                </div>
-                            </div>
-                        </div>
-                  <!-- <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
-                      Book Multiple Sessions
-                  </button>
-                  < Book Now Button (Nav) -->
-                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Multiple Sessions</a>
-                </nav> 
-                </div>
+                  <!-- 3 Hours Best Value Block -->
+                  <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/40 rounded-lg border-4 border-padel-dark shadow-2xl transition duration-300 hover:bg-padel-green/50">
+                      <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse">BEST VALUE</span>
+                      <span class="text-l font-bold text-padel-dark mt-2">3 Hours</span>
+                      <div class="flex flex-col space-y-1 mt-2">
+                          <div class="text-xl text-padel-dark">
+                              Off-Peak: <span class="line-through text-gray-500 mr-2">12000</span>
+                              <span class="font-extrabold">10000</span>
+                          </div>
+                          <div class="text-xl text-padel-dark">
+                              Peak: <span class="line-through text-gray-500 mr-2">15000</span>
+                              <span class="font-extrabold text-red-700">13000</span>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20multiple%20hours%20for%20Padel." target="_blank" class="w-full block border border-padel-accent text-padel-accent font-semibold py-3 px-4 rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">Book Multiple Sessions</a>
               </div>
           </div>
       </div>
-      
   </section>
 
-    <section id="pricing" class="section-padding bg-gray-100">
+    <!-- Pickleball Pricing Section -->
+    <section id="pricing-pickleball" class="section-padding bg-gray-100 pt-0"> <!-- pt-0 to reduce space from section above -->
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-padel-dark mb-16">Picklball Court Pricing</h2>
+            <h2 class="text-4xl font-bold text-center text-padel-dark mb-16">Pickleball Court Pricing</h2>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Pickleball Off-Peak -->
                 <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
                     <h3 class="text-2xl font-bold text-padel-dark mb-4">Off-Peak Rental (1Hr)</h3>
                     <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 2,500</p>
@@ -302,13 +279,13 @@
                         <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (10am - 6pm)</li>
                         <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Water bottles included</li>
                     </ul>
-                    <button class="w-full py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
+                    <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Pickleball%20Off-Peak%20Rental." target="_blank" class="w-full block bg-padel-accent text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
                         Book Off-Peak
-                    </button>
+                    </a>
                 </div>
 
+                <!-- Pickleball Peak -->
                 <div class="bg-padel-dark text-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transform scale-105 transition duration-500 hover:scale-100">
-                    <!-- <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4">MOST POPULAR</span> -->
                     <h3 class="text-2xl font-bold mb-4">Peak Time Rental (1Hr)</h3>
                     <p class="text-5xl font-extrabold text-padel-green mb-6">Rs 3,000</p>
                     <ul class="text-gray-300 text-left space-y-3 mb-8">
@@ -316,195 +293,191 @@
                         <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (6pm - 3am)</li>
                         <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Prime lighting included</li>
                     </ul>
-                    <button class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
+                    <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Pickleball%20Peak%20Rental." target="_blank" class="w-full block py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
                         Book Peak Time
-                    </button>
+                    </a>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
+                <!-- Pickleball Multiple Hours -->
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover space-y-4">
                   <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4 animate-pulse">MOST POPULAR</span>  
-                  <h3 class="text-2xl font-bold text-padel-dark mb-4">Multiple Sessions</h3>
-                    <!-- <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 15,000<span class="text-base font-normal text-gray-500">/mo</span></p>
-                    <ul class="text-gray-600 text-left space-y-3 mb-8">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 5x Peak Time bookings</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 2x Off-Peak Time bookings</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Exclusive access to events</li>
-                    </ul> -->
-
+                  <h3 class="text-2xl font-bold text-padel-dark mb-4">Multiple Sessions (Pickleball)</h3>
+                    
                     <!-- 1 Hour Block -->
                     <div class="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100 rounded-lg shadow-inner border border-gray-200">
                       <span class="text-l font-semibold">1 Hour</span>
                       <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                          <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-primary-blue">2500</span></span>
-                          <span class="text-l text-gray-600">Peak: <span class="font-bold text-primary-blue">3000</span></span>
+                          <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-padel-dark">2500</span></span>
+                          <span class="text-l text-gray-600">Peak: <span class="font-bold text-padel-dark">3000</span></span>
                       </div>
                   </div>
 
                   <!-- 2 Hours Discount Block -->
-                  <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/20 rounded-lg border-2 border-accent-lime shadow-xl discount-glow transition duration-300 hover:bg-accent-lime/30">
-                      <span class="absolute -top-3 left-4 bg-accent-lime text-primary-blue text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
-                      <span class="text-l font-bold text-primary-blue">2 Hours</span>
-                      <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                          <div class="text-lg text-primary-blue">
-                              <span class="line-through text-gray-500 mr-2">5000</span>
+                  <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/20 rounded-lg border-2 border-padel-green shadow-xl transition duration-300 hover:bg-padel-green/30">
+                      <span class="absolute -top-3 left-4 bg-padel-green text-padel-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
+                      <span class="text-l font-bold text-padel-dark">2 Hours</span>
+                      <div class="flex flex-col space-y-1 mt-2">
+                          <div class="text-lg text-padel-dark">
+                              Off-Peak: <span class="line-through text-gray-500 mr-2">5000</span>
                               <span class="font-extrabold">4500</span>
                           </div>
-                          <div class="text-lg text-primary-blue">
-                              <span class="line-through text-gray-500 mr-2">6000</span>
+                          <div class="text-lg text-padel-dark">
+                              Peak: <span class="line-through text-gray-500 mr-2">6000</span>
                               <span class="font-extrabold text-red-700">5500</span>
                           </div>
                       </div>
                   </div>
 
                   <!-- 3 Hours Best Value Block -->
-                  <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/40 rounded-lg border-4 border-primary-blue shadow-2xl discount-glow transition duration-300 hover:bg-accent-lime/50">
+                  <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/40 rounded-lg border-4 border-padel-dark shadow-2xl transition duration-300 hover:bg-padel-green/50">
                       <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse">BEST VALUE</span>
-                      <span class="text-l font-bold text-primary-blue mt-2">3 Hours</span>
-                      <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                          <div class="text-xl text-primary-blue">
-                              <span class="line-through text-gray-500 mr-2">7500</span>
+                      <span class="text-l font-bold text-padel-dark mt-2">3 Hours</span>
+                      <div class="flex flex-col space-y-1 mt-2">
+                          <div class="text-xl text-padel-dark">
+                              Off-Peak: <span class="line-through text-gray-500 mr-2">7500</span>
                               <span class="font-extrabold">6500</span>
                           </div>
-                          <div class="text-xl text-primary-blue">
-                              <span class="line-through text-gray-500 mr-2">9000</span>
+                          <div class="text-xl text-padel-dark">
+                              Peak: <span class="line-through text-gray-500 mr-2">9000</span>
                               <span class="font-extrabold text-red-700">8000</span>
                           </div>
                       </div>
                   </div>
-            <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
-                Book Multiple Sessions
-            </button>
-          
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20multiple%20hours%20for%20Pickleball." target="_blank" class="w-full block border border-padel-accent text-padel-accent font-semibold py-3 px-4 rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
+                      Book Multiple Sessions
+                  </a>
                 </div>
             </div>
         </div>
     </section>
-    <section id="pricing" class="section-padding bg-gray-100">
+
+    <!-- Cricket Pricing Section -->
+    <section id="pricing-cricket" class="section-padding bg-gray-100 pt-0"> <!-- pt-0 to reduce space -->
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="text-4xl font-bold text-center text-padel-dark mb-16">Cricket Net Pricing</h2>
 
           <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <!-- Cricket Off-Peak -->
               <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
                   <h3 class="text-2xl font-bold text-padel-dark mb-4">Off-Peak Rental (20 balls)</h3>
                   <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 650</p>
                   <ul class="text-gray-600 text-left space-y-3 mb-8">
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Mon-Thurs (12pm - 8pm)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (10am - 6pm)</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 20 balls (PKR 200 for every 10 additional balls)</li>
+                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 20 balls (PKR 200/10 extra)</li>
                   </ul>
-                  <button class="w-full py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Cricket%20Off-Peak%20Rental." target="_blank" class="w-full block bg-padel-accent text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
                       Book Off-Peak
-                  </button>
+                  </a>
               </div>
 
+              <!-- Cricket Peak -->
               <div class="bg-padel-dark text-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transform scale-105 transition duration-500 hover:scale-100">
-                  <!-- <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4">MOST POPULAR</span> -->
                   <h3 class="text-2xl font-bold mb-4">Peak Time Rental (20 balls)</h3>
                   <p class="text-5xl font-extrabold text-padel-green mb-6">Rs 800</p>
                   <ul class="text-gray-300 text-left space-y-3 mb-8">
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Mon-Thurs (8pm - 2am)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (6pm - 3am)</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 20 balls (PKR 200 for every 10 additional balls)</li>
+                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 20 balls (PKR 200/10 extra)</li>
                   </ul>
-                  <button class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20Cricket%20Peak%20Rental." target="_blank" class="w-full block py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
                       Book Peak Time
-                  </button>
+                  </a>
               </div>
 
-              <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
+              <!-- Cricket Timed Sessions -->
+              <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover space-y-4">
                 <span class="inline-block bg-padel-green text-padel-dark font-bold text-xs px-3 py-1 rounded-full mb-4 animate-pulse">MOST POPULAR</span>  
-                <h3 class="text-2xl font-bold text-padel-dark mb-4">Timed Sessions</h3>
-                  <!-- <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 12,000<span class="text-base font-normal text-gray-500">/mo</span></p>
-                  <ul class="text-gray-600 text-left space-y-3 mb-8">
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 8x Peak Time bookings</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 8x Off-Peak Time bookings</li>
-                      <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> (30 balls each session)</li>
-                  </ul> -->
-                  <!-- 1 Hour Block -->
+                <h3 class="text-2xl font-bold text-padel-dark mb-4">Timed Sessions (Cricket)</h3>
+                  
+                  <!-- 10 Min Block -->
                   <div class="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100 rounded-lg shadow-inner border border-gray-200">
                     <span class="text-l font-semibold">10 Minutes</span>
                     <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                        <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-primary-blue">1000</span></span>
-                        <span class="text-l text-gray-600">Peak: <span class="font-bold text-primary-blue">1200</span></span>
+                        <span class="text-l text-gray-600">Off-Peak: <span class="font-bold text-padel-dark">1000</span></span>
+                        <span class="text-l text-gray-600">Peak: <span class="font-bold text-padel-dark">1200</span></span>
                     </div>
                 </div>
 
-                <!-- 2 Hours Discount Block -->
-                <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/20 rounded-lg border-2 border-accent-lime shadow-xl discount-glow transition duration-300 hover:bg-accent-lime/30">
-                    <span class="absolute -top-3 left-4 bg-accent-lime text-primary-blue text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
-                    <span class="text-l font-bold text-primary-blue">20 Minutes</span>
-                    <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                        <div class="text-lg text-primary-blue">
-                            <span class="line-through text-gray-500 mr-2">2000</span>
+                <!-- 20 Min Discount Block -->
+                <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/20 rounded-lg border-2 border-padel-green shadow-xl transition duration-300 hover:bg-padel-green/30">
+                    <span class="absolute -top-3 left-4 bg-padel-green text-padel-dark text-xs font-bold px-3 py-1 rounded-full shadow-md">SAVE!</span>
+                    <span class="text-l font-bold text-padel-dark">20 Minutes</span>
+                    <div class="flex flex-col space-y-1 mt-2">
+                        <div class="text-lg text-padel-dark">
+                            Off-Peak: <span class="line-through text-gray-500 mr-2">2000</span>
                             <span class="font-extrabold">1800</span>
                         </div>
-                        <div class="text-lg text-primary-blue">
-                            <span class="line-through text-gray-500 mr-2">2400</span>
+                        <div class="text-lg text-padel-dark">
+                            Peak: <span class="line-through text-gray-500 mr-2">2400</span>
                             <span class="font-extrabold text-red-700">2000</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3 Hours Best Value Block -->
-                <div class="relative flex flex-col sm:flex-row justify-between items-center p-4 bg-accent-lime/40 rounded-lg border-4 border-primary-blue shadow-2xl discount-glow transition duration-300 hover:bg-accent-lime/50">
+                <!-- 30 Min Best Value Block -->
+                <div class="relative flex flex-col justify-between items-center p-4 bg-padel-green/40 rounded-lg border-4 border-padel-dark shadow-2xl transition duration-300 hover:bg-padel-green/50">
                     <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg animate-pulse">BEST VALUE</span>
-                    <span class="text-l font-bold text-primary-blue mt-2">30 Minutes</span>
-                    <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-6 mt-2 sm:mt-0">
-                        <div class="text-xl text-primary-blue">
-                            <span class="line-through text-gray-500 mr-2">3000</span>
+                    <span class="text-l font-bold text-padel-dark mt-2">30 Minutes</span>
+                    <div class="flex flex-col space-y-1 mt-2">
+                        <div class="text-xl text-padel-dark">
+                            Off-Peak: <span class="line-through text-gray-500 mr-2">3000</span>
                             <span class="font-extrabold">2500</span>
                         </div>
-                        <div class="text-xl text-primary-blue">
-                            <span class="line-through text-gray-500 mr-2">3600</span>
+                        <div class="text-xl text-padel-dark">
+                            Peak: <span class="line-through text-gray-500 mr-2">3600</span>
                             <span class="font-extrabold text-red-700">2800</span>
                         </div>
                     </div>
                 </div>
-                  <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20timed%20Cricket%20session." target="_blank" class="w-full block border border-padel-accent text-padel-accent font-semibold py-3 px-4 rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
                       Book Session
-                  </button>
+                  </a>
               </div>
           </div>
       </div>
     </section>
-    <!-- Booking CTA Section (Re-using a placeholder image/concept) -->
+
+    <!-- Booking CTA Section -->
     <section id="booking" class="section-padding bg-padel-green text-padel-dark">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-extrabold mb-4">Ready to Play?</h2>
             <p class="text-xl mb-8">Secure your spot on one of our world-class courts today.</p>
-            <!-- View Availability/Book Button (CTA) -->
             <a href="https://wa.me/1234567890?text=I'd%20like%20to%20view%20availability%20and%20book%20a%20court." target="_blank" class="bg-padel-dark hover:bg-gray-700 text-white font-bold py-3 px-10 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
                 View Availability
             </a>
         </div>
     </section>
-      <section id="contact" class="section-padding bg-white">
+
+    <!-- Membership Section -->
+    <section id="membership" class="section-padding bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="p-6 bg-white text-primary-blue rounded-xl shadow-2xl discount-glow border-t-8 border-accent-lime">
-                        
-            <div class="space-y-4">
-            <h2 class="text-4xl font-bold text-center text-padel-dark mb-12">Monthly Membership</h2>
-            <span class="  items-center center justify-center bg-padel-green text-padel-dark font-bold text-2xl px-3 py-1 rounded-full mb-4 animate-pulse">Opening Discount : 10% Off on memberhip for the 1st month</span>    
-      <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
-        <!-- <h3 class="text-2xl font-bold text-padel-dark mb-4">Timed Sessions</h3> -->
-        <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 20,000<span class="text-base font-normal text-gray-500">/mo</span></p>
-        <ul class="text-gray-600 text-3xl space-y-3 mb-8">
-            <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x Peak Time bookings (Padel or Pickelball)</li>
-            <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x Off-Peak Time bookings (Padel or Pickelball)</li>
-            <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x (Cricket: 30 balls sessions)</li>
-        </ul>
-      <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
-        Join Today
-    </button>
-   
+            <div class="p-8 bg-white text-padel-dark rounded-xl shadow-2xl border-t-8 border-padel-green text-center max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-padel-dark mb-6">Monthly Membership</h2>
+                <span class="inline-block bg-padel-green text-padel-dark font-bold text-lg px-4 py-1 rounded-full mb-6 animate-pulse">Opening Discount: 10% Off 1st Month!</span>    
+                
+                <p class="text-5xl font-extrabold text-padel-accent mb-6">Rs 20,000<span class="text-base font-normal text-gray-500">/mo</span></p>
+                
+                <ul class="text-gray-600 text-lg space-y-3 mb-8 text-left max-w-md mx-auto">
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-padel-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x Peak Time bookings (Padel or Pickleball)</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-padel-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x Off-Peak Time bookings (Padel or Pickleball)</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-padel-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 4x (Cricket: 30 balls sessions)</li>
+                </ul>
+                <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Monthly%20Membership!" target="_blank" class="w-full max-w-md mx-auto block py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
+                    Join Today via WhatsApp
+                </a>
+            </div>
+        </div>
   </section>
 
-    <section id="contact" class="section-padding bg-white">
+    <!-- Contact Form & Map Section -->
+    <section id="contact" class="section-padding bg-gray-100">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center text-padel-dark mb-12">Visit Our Courts</h2>
 
             <div class="grid lg:grid-cols-2 gap-12">
-                <div class="p-8 bg-gray-100 rounded-xl shadow-lg">
+                <!-- Contact Form -->
+                <div class="p-8 bg-white rounded-xl shadow-lg">
                     <h3 class="text-2xl font-semibold text-padel-dark mb-6">Send Us a Message</h3>
                     <form onsubmit="event.preventDefault(); showContactSuccess();" class="space-y-4">
                         <div>
@@ -523,11 +496,13 @@
                             Submit Inquiry
                         </button>
                     </form>
+                    <!-- Success Message Box -->
                     <div id="contact-success" class="hidden mt-6 p-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
                         <span class="font-medium">Success!</span> Your message has been sent. We'll be in touch soon.
                     </div>
                 </div>
 
+                <!-- Location / Map Embed -->
                 <div>
                     <h3 class="text-2xl font-semibold text-padel-dark mb-4">Our Location</h3>
                     <p class="mb-4 text-gray-600">
@@ -536,8 +511,8 @@
                     <div class="rounded-xl shadow-lg overflow-hidden w-full" style="height: 400px;">
                       <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.480180083097!2d74.18637447514645!3d31.428445074256192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918ff005ee15c19%3A0xe3e17830478e8985!2sElite%20Courts!5e0!3m2!1sen!2str!4v1762822637317!5m2!1sen!2str"
-                      width="600"
-                      height="450"
+                      width="100%"
+                      height="100%"
                       style="border:0;"
                       allowfullscreen=""
                       loading="lazy"
@@ -548,69 +523,70 @@
             </div>
         </div>
     </section>
-<!-- 4. Contact/Footer Section -->
-<footer id="contact" class="py-12 bg-gray-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-3 gap-8 border-b border-gray-700 pb-8 mb-8">
+
+    <!-- Footer -->
+    <footer id="footer" class="py-12 bg-padel-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-3 gap-8 border-b border-gray-700 pb-8 mb-8">
+              
+              <!-- Column 1: Logo & Mission -->
+              <div>
+                  <!-- Logo: Uses your uploaded image file -->
+                  <img 
+                      src="Lime Modern Padel Club Logo.jpg" 
+                      alt="Elite Courts Logo" 
+                      class="h-12 w-auto rounded-full mb-4"
+                      onerror="this.onerror=null; this.src='https://placehold.co/48x48/4ade80/0a3d62?text=EC';"
+                  >
+                  <p class="text-gray-400 text-sm">
+                      Elite Courts is dedicated to providing the best Padel and Pickleball facilities, fostering a vibrant community for all racquet enthusiasts.
+                  </p>
+              </div>
+
+              <!-- Column 2: Quick Links -->
+              <div>
+                  <h3 class="text-lg font-bold text-padel-green mb-4">Quick Links</h3>
+                  <ul class="space-y-2 text-sm">
+                      <li><a href="#sports" class="text-gray-300 hover:text-white transition duration-150">Our Services</a></li>
+                      <li><a href="#pricing" class="text-gray-300 hover:text-white transition duration-150">Court Rates</a></li>
+                      <li><a href="#membership" class="text-gray-300 hover:text-white transition duration-150">Membership</a></li>
+                  </ul>
+              </div>
+
+              <!-- Column 3: Contact Info -->
+              <div>
+                  <h3 class="text-lg font-bold text-padel-green mb-4">Get In Touch</h3>
+                  <ul class="space-y-2 text-sm text-gray-300">
+                      <li>Email: <a href="mailto:info@elitecourts.com" class="hover:text-white">elitecourtspadel@gmail.com</a></li>
+                      <li>Phone: (555) 123-4567</li>
+                      <li>Address: Elite Courts, 23 A, P&D Cooperative Housing Society, main canal road, Lahore</li>
+                  </ul>
+              </div>
+
+          </div>
           
-          <!-- Column 1: Logo & Mission -->
-          <div>
-              <!-- Logo: Uses your uploaded image file -->
-              <img 
-                  src="Lime Modern Padel Club Logo.jpg" 
-                  alt="Elite Courts Logo" 
-                  class="h-12 w-auto rounded-full mb-4"
-                  onerror="this.onerror=null; this.src='https://placehold.co/48x48/4ade80/0a3d62?text=EC';"
-              >
-              <p class="text-gray-400 text-sm">
-                  Elite Courts is dedicated to providing the best Padel and Pickleball facilities, fostering a vibrant community for all racquet enthusiasts.
-              </p>
-          </div>
-
-          <!-- Column 2: Quick Links -->
-          <div>
-              <h3 class="text-lg font-bold text-accent-lime mb-4">Quick Links</h3>
-              <ul class="space-y-2 text-sm">
-                  <li><a href="#services" class="text-gray-300 hover:text-white transition duration-150">Our Services</a></li>
-                  <li><a href="#pricing" class="text-gray-300 hover:text-white transition duration-150">Court Rates</a></li>
-                  <li><a href="#" class="text-gray-300 hover:text-white transition duration-150">Club Rules</a></li>
-              </ul>
-          </div>
-
-          <!-- Column 3: Contact Info -->
-          <div>
-              <h3 class="text-lg font-bold text-accent-lime mb-4">Get In Touch</h3>
-              <ul class="space-y-2 text-sm text-gray-300">
-                  <li>Email: <a href="mailto:info@elitecourts.com" class="hover:text-white">elitecourtspadel@gmail.com</a></li>
-                  <li>Phone: (555) 123-4567</li>
-                  <li>Address: Elite Courts, 23 A, P&D Cooperative Housing Society, main canal road, Lahore</li>
-              </ul>
-          </div>
-
-      </div>
-      
-      <!-- NEW: Social Media Links Section -->
-      <div class="mt-8 pt-6 border-t border-gray-700">
-          <h3 class="text-xl font-bold text-accent-lime text-center mb-6">Connect With Us!</h3>
-          <div class="flex justify-center space-x-8">
-              
-              <!-- Facebook Icon -->
-              <a href="https://facebook.com/elitecourts" target="_blank" aria-label="Follow us on Facebook" class="text-gray-400 hover:text-accent-lime transition duration-300 transform hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              
-              <!-- Instagram Icon -->
-              <a href="https://instagram.com/elitecourts" target="_blank" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-accent-lime transition duration-300 transform hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.5" y1="6.5" y2="6.5"/></svg>
-              </a>
-              
-              <!-- YouTube Icon -->
-              <a href="https://youtube.com/elitecourts" target="_blank" aria-label="Subscribe to our YouTube channel" class="text-gray-400 hover:text-accent-lime transition duration-300 transform hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 17.5a2.5 2.5 0 0 1 0-5h19a2.5 2.5 0 0 1 0 5h-19zm5-2.5v-2.5L16 15l-8.5 2.5v-2.5z"/></svg>
-              </a>
-              
-              <!-- TikTok Icon (Simplified - can represent any video platform) -->
-              <a href="https://tiktok.com/@elitecourts" target="_blank" aria-label="Follow us on TikTok" class="text-gray-400 hover:text-accent-lime transition duration-300 transform hover:scale-110">
+          <!-- Social Media Links Section -->
+          <div class="mt-8 pt-6 border-t border-gray-700">
+              <h3 class="text-xl font-bold text-padel-green text-center mb-6">Connect With Us!</h3>
+              <div class="flex justify-center space-x-8">
+                  
+                  <!-- Facebook Icon -->
+                  <a href="https://facebook.com/elitecourts" target="_blank" aria-label="Follow us on Facebook" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  </a>
+                  
+                  <!-- Instagram Icon -->
+                  <a href="https://instagram.com/elitecourts" target="_blank" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.849.069-3.205 0-3.584-.012-4.849-.069-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.644-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.602C8.71 0 8.31.01 7.05.06c-3.59.16-6.02 2.6-6.18 6.18-.05 1.26-.06 1.66-.06 7.05s.01 5.79.06 7.05c.16 3.59 2.6 6.02 6.18 6.18 1.26.05 1.66.06 7.05.06s5.79-.01 7.05-.06c3.59-.16 6.02-2.6 6.18-6.18.05-1.26.06-1.66.06-7.05s-.01-5.79-.06-7.05C21.99 2.67 19.56.22 15.98.06 14.72.01 14.31 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+                  </a>
+                  
+                  <!-- YouTube Icon -->
+                  <a href="https://youtube.com/elitecourts" target="_blank" aria-label="Subscribe to our YouTube channel" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19c-.23-1.65-1.52-2.92-3.18-3.15C16.53 3.75 12 3.75 12 3.75s-4.53 0-6.4.29C3.92 4.27 2.63 5.54 2.4 7.19c-.29 1.87-.29 5.81-.29 5.81s0 3.94.29 5.81c.23 1.65 1.52 2.92 3.18 3.15C7.47 22.25 12 22.25 12 22.25s4.53 0 6.4-.29c1.65-.23 2.95-1.5 3.18-3.15.29-1.87.29-5.81.29-5.81s0-3.94-.29-5.81zM9.75 15.38V8.62L15.5 12l-5.75 3.38z"/></svg>
+                  </a>
+                  
+                  <!-- TikTok Icon -->
+                  <a href="https://tiktok.com/@elitecourts" target="_blank" aria-label="Follow us on TikTok" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8h-2.43a6.83 6.83 0 0 0-3.14-1.28v2.79a3.83 3.83 0 0 1 1.76.62V12h3V8zm0 5v4h-3v4.06c-1.63-.44-3-1.68-3-4.06v-4H6V8h3a6.83 6.83 0 0 0 3.14 1.28V6a6.83 6.83 0 0 0-3.14-1.28v-2A9 9 0 0 1 15 6.5C18.3 8.35 18 10 18 10v3z"/></svg>
               </a>
           </div>
