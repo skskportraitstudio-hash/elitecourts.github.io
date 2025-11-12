@@ -64,7 +64,17 @@
       }
   </style>
 </head>
-<body class="font-sans bg-gray-50 text-padel-dark">
+<body class="bg-white text-padel-dark">
+    <!-- Define the WhatsApp contact link for reuse -->
+    <!-- NOTE: Replace '1234567890' with your actual WhatsApp number (e.g., 447900123456) -->
+    <script>
+        const WHATSAPP_NUMBER = '1234567890'; // <<< UPDATE THIS WITH YOUR NUMBER
+        function getWhatsAppLink(message) {
+            return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+    </script>
+    
+    class="font-sans bg-gray-50 text-padel-dark">
 
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -83,9 +93,10 @@
                 <a href="#sports" class="text-padel-dark hover:text-padel-green transition duration-300">Sports</a>
                 <a href="#pricing" class="text-padel-dark hover:text-padel-green transition duration-300">Pricing</a>
                 <a href="#contact" class="text-padel-dark hover:text-padel-green transition duration-300">Contact</a>
-                <button class="px-4 py-2 bg-padel-accent text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-                    Book Now
                 </button>
+                <!-- Book Now Button (Nav) -->
+                <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Now</a>
+            </nav>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-padel-dark hover:bg-gray-100 focus:outline-none">
@@ -97,18 +108,21 @@
             <a href="#sports" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Sports</a>
             <a href="#pricing" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Pricing</a>
             <a href="#contact" class="block px-4 py-2 text-padel-dark hover:bg-gray-100" onclick="toggleMobileMenu()">Contact</a>
-            <button class="w-full mt-2 px-4 py-3 bg-padel-accent text-white font-semibold hover:bg-blue-700 transition duration-300 rounded-none" onclick="toggleMobileMenu()">
+            <!-- <button class="w-full mt-2 px-4 py-3 bg-padel-accent text-white font-semibold hover:bg-blue-700 transition duration-300 rounded-none" onclick="toggleMobileMenu()">
                 Book Now
-            </button>
+            </button> -->
+            <!-- Book Now Button (Nav) -->
+            <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Now</a>
+        </nav>
         </div>
     </header>
 
-    <section  id="hero" class="relative bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden opacity=0.5">
+    <section  id="hero" class="relative bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
       <!-- Background Image -->
-      <div class="absolute inset-5 z-0">
-            <img src="Lime Modern Padel Club Logo.jpg" 
+      <div class="absolute z-0">
+            <img src="tennis-paddles-balls-arrangement.jpg" 
             alt="Elite Courts Logo" 
-            class="h-60 w-auto rounded-full"
+            class="h-full w-full hero-bg(0,0,0,0.5)"
             onerror="this.onerror=null; this.src='https://placehold.co/40x40/4ade80/0a3d62?text=EC';"
         >  
         </div>
@@ -184,9 +198,12 @@
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (10am - 6pm)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Water bottles included</li>
                   </ul>
-                  <button class="w-full py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
+                  <!-- <button class="w-full py-3 bg-padel-accent text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
                       Book Off-Peak
-                  </button>
+                  </button> -->
+                  <!-- Book Now Button (Nav) -->
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-accent hover:bg-green-500 text-white font-semibold py-4 px-7 rounded-lg transition duration-300 shadow-md">Book Off-Peak Rental</a>
+                </nav>
               </div>
 
               <div class="bg-padel-dark text-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transform scale-105 transition duration-500 hover:scale-100">
@@ -198,9 +215,12 @@
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Fri-Sun (6pm - 3am)</li>
                       <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-padel-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Prime lighting included</li>
                   </ul>
-                  <button class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
+                  <!-- <button class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
                       Book Peak Time
-                  </button>
+                  </button> -->
+                  <!-- Book Now Button (Nav) -->
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-blue-400 py-4 px-7 rounded-lg transition duration-300 shadow-md">Book Peak Rental</a>
+                </nav>
               </div>
 
               <div class="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-padel-green text-center transition duration-300 card-hover">
@@ -257,9 +277,12 @@
                                 </div>
                             </div>
                         </div>
-                  <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
+                  <!-- <button class="w-full py-3 border border-padel-accent text-padel-accent font-semibold rounded-lg hover:bg-padel-accent hover:text-white transition duration-300">
                       Book Multiple Sessions
                   </button>
+                  < Book Now Button (Nav) -->
+                  <a href="https://wa.me/1234567890?text=I'm%20looking%20to%20book%20a%20court%20at%20Elite%20Courts." target="_blank" class="bg-padel-green hover:bg-green-500 text-padel-dark font-semibold py-1.5 px-4 rounded-lg transition duration-300 shadow-md">Book Multiple Sessions</a>
+                </nav> 
                 </div>
               </div>
           </div>
@@ -445,7 +468,17 @@
           </div>
       </div>
     </section>
-    
+    <!-- Booking CTA Section (Re-using a placeholder image/concept) -->
+    <section id="booking" class="section-padding bg-padel-green text-padel-dark">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Ready to Play?</h2>
+            <p class="text-xl mb-8">Secure your spot on one of our world-class courts today.</p>
+            <!-- View Availability/Book Button (CTA) -->
+            <a href="https://wa.me/1234567890?text=I'd%20like%20to%20view%20availability%20and%20book%20a%20court." target="_blank" class="bg-padel-dark hover:bg-gray-700 text-white font-bold py-3 px-10 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
+                View Availability
+            </a>
+        </div>
+    </section>
       <section id="contact" class="section-padding bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="p-6 bg-white text-primary-blue rounded-xl shadow-2xl discount-glow border-t-8 border-accent-lime">
