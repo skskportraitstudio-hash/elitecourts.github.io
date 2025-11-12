@@ -51,7 +51,13 @@
           }
       }
       /* Custom styles for aesthetic enhancements */
-     
+      /* .hero-bg {
+          background-color: #0a3d62;
+          /* Using a placeholder for the background image for demonstration */
+          background-image: linear-gradient(rgba(10, 61, 98, 0.95), rgba(10, 61, 98, 0.8)), url('https://placehold.co/1200x800/0a3d62/ffffff?text=Padel+Court+Background');
+          background-size: cover;
+          background-position: center;
+      } */
       /* Adds a subtle lime green ring effect to cards */
       .card-shadow {
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(74, 222, 128, 0.5); 
@@ -68,14 +74,13 @@
         }
     </script>
     
-    <!-- <class="font-sans bg-gray-50 text-padel-dark"> -->
+    <!-- class="font-sans bg-gray-50 text-padel-dark"> -->
 
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo: Uses your uploaded image file -->
             <a href="#" class="flex items-center space-x-3">
-              <img 
-                  src="Lime Modern Padel Club Logo.jpg" 
+              <img src="Lime Modern Padel Club Logo.jpg" 
                   alt="Elite Courts Logo" 
                   class="h-10 w-auto rounded-full"
                   onerror="this.onerror=null; this.src='https://placehold.co/40x40/4ade80/0a3d62?text=EC';"
@@ -111,9 +116,9 @@
         </div>
     </header>
 
-    <section  id="hero" class="relative bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
+    <section  id="hero" class="relative bg-contain bg-no-repeat bg-padel-dark text-white h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
       <!-- Background Image -->
-      <div class="absolute z-0">
+      <div class="absolute z-0 bg-con">
             <img src="tennis-paddles-balls-arrangement.jpg" 
             alt="Elite Courts Logo" 
             class="h-full w-full"
