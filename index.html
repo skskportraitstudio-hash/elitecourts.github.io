@@ -476,25 +476,33 @@
             <h2 class="text-4xl font-bold text-center text-padel-dark mb-12">Visit Our Courts</h2>
 
             <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="p-8 bg-white rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold text-padel-dark mb-6">Send Us a Message</h3>
-                    <form onsubmit="event.preventDefault(); showContactSuccess();" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-green focus:border-padel-green">
+               Contact Form -->
+                <div class="bg-white p-6 rounded-xl shadow-xl">
+                    <!-- 
+                        ACTION REQUIRED: 
+                        1. This form now uses FormSubmit.co to send the email.
+                        2. REPLACE the placeholder email address (your-email@example.com) with your actual email address.
+                        3. You will receive a confirmation email from FormSubmit the first time you use it.
+                    -->
+                    <form action="https://formsubmit.co/elitecourtspadel@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Contact Request from Elite Courts Website">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-accent focus:border-padel-accent transition duration-150">
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-green focus:border-padel-green">
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-accent focus:border-padel-accent transition duration-150">
                         </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-green focus:border-padel-green"></textarea>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-padel-accent focus:border-padel-accent transition duration-150"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3 bg-padel-green text-padel-dark font-bold rounded-lg hover:bg-green-400 transition duration-300">
-                            Submit Inquiry
+                        <button type="submit" class="w-full py-3 bg-padel-accent text-white font-bold rounded-lg hover:bg-padel-green hover:text-padel-dark transition duration-300 transform hover:scale-[1.01]">
+                            Send Message
                         </button>
+                    </form>
+                    <!-- Since the form submits and navigates away, the in-page success message is now redundant and removed. -->
                     </form>
                     <!-- Success Message Box -->
                     <div id="contact-success" class="hidden mt-6 p-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
@@ -539,7 +547,7 @@
                       onerror="this.onerror=null; this.src='https://placehold.co/48x48/4ade80/0a3d62?text=EC';"
                   >
                   <p class="text-gray-400 text-sm">
-                      Elite Courts is dedicated to providing the best Padel and Pickleball facilities, fostering a vibrant community for all racquet enthusiasts.
+                      Elite Courts is dedicated to providing the best Padel, Pickleball, cricket and many other fun facilities, fostering a vibrant community for all racquet enthusiasts.
                   </p>
               </div>
 
@@ -558,7 +566,7 @@
                   <h3 class="text-lg font-bold text-padel-green mb-4">Get In Touch</h3>
                   <ul class="space-y-2 text-sm text-gray-300">
                       <li>Email: <a href="mailto:info@elitecourts.com" class="hover:text-white">elitecourtspadel@gmail.com</a></li>
-                      <li>Phone: (555) 123-4567</li>
+                      <li>Phone: (0308)4708858</li>
                       <li>Address: Elite Courts, 23 A, P&D Cooperative Housing Society, main canal road, Lahore</li>
                   </ul>
               </div>
@@ -571,12 +579,12 @@
               <div class="flex justify-center space-x-8">
                   
                   <!-- Facebook Icon -->
-                  <a href="https://facebook.com/elitecourts" target="_blank" aria-label="Follow us on Facebook" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
+                  <a href="https://www.facebook.com/profile.php?id=61583891281539" target="_blank" aria-label="Follow us on Facebook" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                   </a>
                   
                   <!-- Instagram Icon -->
-                  <a href="https://instagram.com/elitecourts" target="_blank" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
+                  <a href="https://www.instagram.com/elite.courts/" target="_blank" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-padel-green transition duration-300 transform hover:scale-110">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.849.069-3.205 0-3.584-.012-4.849-.069-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.644-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.602C8.71 0 8.31.01 7.05.06c-3.59.16-6.02 2.6-6.18 6.18-.05 1.26-.06 1.66-.06 7.05s.01 5.79.06 7.05c.16 3.59 2.6 6.02 6.18 6.18 1.26.05 1.66.06 7.05.06s5.79-.01 7.05-.06c3.59-.16 6.02-2.6 6.18-6.18.05-1.26.06-1.66.06-7.05s-.01-5.79-.06-7.05C21.99 2.67 19.56.22 15.98.06 14.72.01 14.31 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
                   </a>
                   
